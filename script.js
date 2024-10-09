@@ -303,7 +303,7 @@ team1 < team2 && console.log('Team1 is more likely to win')
 team1 > team2 && console.log('Team2 is more likely to win')
 
 
-/*6.Test data for: First, use players 'Davies', 'Muller', 'Lewandowski' and 'Kimmich'. Then, call the function again with players from game.scored*/
+6.Test data for: First, use players 'Davies', 'Muller', 'Lewandowski' and 'Kimmich'. Then, call the function again with players from game.scored
 
 const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
 
@@ -313,4 +313,47 @@ for (const [i, el] of menu.entries()) {
   // console.log(item);
   // console.log(`${item[0] +1}: ${item[1]}`);
   console.log(`${i +1}: ${el}`);
+}
+*/
+
+if (restaurant.openingHours && restaurant.openingHours.mon)
+  console.log(restaurant.openingHours.mon.open);
+
+// With optional chaining
+console.log(restaurant.openingHours.mon?.open);
+console.log(restaurant.openingHours?.mon?.open);
+
+const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
+for (const day of days) {
+  // console.log(day)
+  const open = restaurant.openingHours[day]?.open;
+  console.log(
+    `On ${day}, ${
+      open !== undefined ? `We are open at ${open}` : 'We are closed'
+    }`
+  );
+}
+
+const openingHours = restaurant.openingHours; 
+
+// Properties NAMES
+const properties = Object.keys(openingHours);
+console.log(properties)
+
+let openStr = `we are open on ${properties.length} days`; 
+for(const day of properties){
+  openStr +=  ` ${day}, `
+}
+console.log(openStr); 
+
+// Property VALUES
+const values = Object.values(openingHours); 
+console.log(values); 
+
+const entries = Object.entries(openingHours)
+console.log(entries); 
+
+for (const [key, {open, close}] of entries){ 
+ console.log(`One ${key} we are open at ${open} and close at ${close}`)
 }
