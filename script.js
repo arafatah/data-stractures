@@ -144,11 +144,13 @@ if(restaurant.orderPizza){
 restaurant.orderPizza && restaurant.orderPizza('mashroom', 'whatever')
 */
 
-// Nullish operators 
 
+// Nullish operators 
 restaurant.numGuest = 0;
 
 const guest = restaurant.numGuest || 10; 
 console.log(guest)
 
+// Nullish: null and undefined (not 0 or '')
 const guestCorrect = restaurant.numGuest ?? 10; 
+console.log(guestCorrect)
