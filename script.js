@@ -217,7 +217,7 @@ Test data for 6.: First, use players 'Davies', 'Muller', 'Lewandowski' and 'Kimm
 Then, call the function again with players from game.scored
 GOOD LUCK 
 */
-
+/*
 // challenge 1
 const game = {
   team1: 'Bayern Munich',
@@ -304,3 +304,13 @@ team1 > team2 && console.log('Team2 is more likely to win')
 
 
 /*6.Test data for: First, use players 'Davies', 'Muller', 'Lewandowski' and 'Kimmich'. Then, call the function again with players from game.scored*/
+
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+for (const item of menu) console.log(item);
+
+for (const [i, el] of menu.entries()) {
+  // console.log(item);
+  // console.log(`${item[0] +1}: ${item[1]}`);
+  console.log(`${i +1}: ${el}`);
+}
