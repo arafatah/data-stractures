@@ -34,6 +34,7 @@ const restaurant = {
     console.log(otherIngredients);
   },
 };
+const newLocal = 'Try again💥';
 /*
 const nested = [1, 2, [3, 4]];
 
@@ -383,7 +384,7 @@ game, it will look like this:
  Lewandowski: 2
 }
 GOOD LUCK �
-*/
+
 
 const game = {
   team1: 'Bayern Munich',
@@ -466,3 +467,138 @@ for(const [team, odd] of Object.entries(game.odds)){
   const teamStr = team === 'x' ? 'draw' : `Victory ${game[team]}`
   console.log(`Odd of ${teamStr}: ${odd}`)
 }
+
+// 4. Bonus: Create an object called 'scorers' which contains the names of the 
+// players who scored as properties, and the number of goals as the value. In this 
+// game, it will look like this:
+// {
+//  Gnarby: 1,
+//  Hummels: 1,
+//  Lewandowski: 2
+// }
+const scorers = {};
+
+for (const player of game.scored) {
+  // If the player is already in the scorers object, increment their count
+  if (scorers[player]) {
+    scorers[player]++;
+  } else {
+    // Otherwise, add the player to the scorers object with an initial value of 1
+    scorers[player] = 1;
+  }
+}
+// second method
+for (const player of game.scored) {
+  scorers[player] ? scorers[player]++ : (scorers[player] = 1);
+}
+
+console.log(scorers);
+
+
+// SETS in JavaScript
+const orderSet = new Set([
+  'Pasta',
+  'Pizza',
+  'Pizza',
+  'Risotto',
+  'Pasta',
+  'Pizza',
+]);
+
+console.log(orderSet);
+
+console.log(new Set('Jonas'));
+
+console.log(orderSet.size);
+console.log(orderSet.has('Pizza'));
+console.log(orderSet.has('Bread'));
+orderSet.add('Garlic Bread');
+orderSet.add('Garlic Bread');
+orderSet.delete('Garlic Bread');
+console.log(orderSet);
+
+
+const rest = new Map();
+rest.set('name', 'Mayer dua hotel');
+rest.set(1, 'UK');
+rest.set(2, 'California');
+console.log(rest.set(2, 'Lisbon, Portugal'));
+
+rest
+  .set('categories', [
+    'Schulz',
+    'Hummels',
+    'Akanji',
+    'Hakimi',
+    'Weigl',
+    'Witsel',
+    'Hazard',
+    'Brandt',
+    'Sancho',
+    'Gotze',
+  ])
+  .set('open', 11)
+  .set('close', 23)
+  .set(true, 'We are open :D')
+  .set(false, 'We are closed');
+
+console.log(rest.get('name'));
+console.log(rest.get(true));
+console.log(rest.get('categories'));
+
+const time = 21;
+console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
+
+const arr = [1, 3];
+rest.set(arr, 'Test');
+rest.set(document.querySelector('h1'), 'Heading');
+console.log(rest);
+console.log(rest.size);
+
+console.log(rest.get(arr));
+*/
+
+const question = new Map([
+  ['Question', 'What is the best programming language in the world?'],
+  [1, 'C'],
+  [2, 'Java'],
+  [3, 'JavaScript'],
+  ['correct', 3],
+  [true, 'Correct 🎉'],
+  [false, 'Try again 📌'],
+]);
+
+const openingHours = {
+  thu: {
+    open: 12,
+    close: 22,
+  },
+  fri: {
+    open: 11,
+    close: 23,
+  },
+  sat: {
+    open: 0, // Open 24 hours
+    close: 24,
+  },
+};
+
+console.log(question);
+console.log(Object.entries(openingHours));
+
+const hoursMap = new Map(Object.entries(openingHours));
+console.log(hoursMap);
+
+for (const [key, value] of question) {
+  if (typeof key === 'number') console.log(`Answer ${key}: ${value}`);
+}
+
+// const answer = Number(prompt('Your Answer'));
+const answer = 3; 
+console.log(answer);
+
+// If correct === answer; then it will output 3; and that's means a true value and question.get(true) : value === true, so it will pring. Correct otherwise Try again.
+console.log(question.get(question.get('correct') === answer));
+
+// Convert Map to an array.
+console.log(...question);
