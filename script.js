@@ -1,8 +1,8 @@
 'use strict';
 
 // Data needed for a later exercise
-const flights =
-  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
+// const flights =
+//   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
 // Data needed for first part of the section
 const restaurant = {
@@ -621,7 +621,7 @@ average, every 9 minutes" (keep in mind that a game has 90 minutes)
 whether it's in the first half or second half (after 45 min) of the game, like this:
 [FIRST HALF] 17: ⚽ GOAL
 GOOD LUCK */
-
+/*
 const gameEvents = new Map([
   [17, '⚽ GOAL'],
   [36, '� Substitution'],
@@ -655,4 +655,169 @@ console.log(
 for (const [min, event] of gameEvents) {
   const half = min < 45 ? 'FIRST' : 'SECOND';
   console.log(`[${half} HALF] ${min}: ${event}`);
+}
+
+
+// Working With Strings - Part 1
+const airline = 'TAP Air Portugal';
+const plane = 'A320';
+
+console.log(plane[0]);
+console.log(plane[1]);
+console.log(plane[2]);
+console.log('B737'[0]);
+
+console.log(airline.length);
+console.log('B737'.length);
+
+console.log(airline.indexOf('r'));
+console.log(airline.lastIndexOf('r'));
+console.log(airline.indexOf('portugal'));
+
+console.log(airline.slice(4));
+console.log(airline.slice(4, 7));
+
+console.log(airline.slice(0, airline.indexOf(' ')));
+console.log(airline.slice(airline.lastIndexOf(' ') + 1));
+
+console.log(airline.slice(-2));
+console.log(airline.slice(1, -1));
+
+const checkMiddleSeat = function (seat) {
+  // B and E is middle seat
+  const s = seat.slice(-1);
+  if (s === 'B' || s === 'C') console.log('You got the middle seat');
+  else console.log('You got Lucky');
+};
+
+checkMiddleSeat('11B');
+checkMiddleSeat('11D');
+checkMiddleSeat('11C');
+
+console.log(new String('jonas'));
+console.log(typeof new String('jonas'));
+
+console.log(typeof new String('jonas').slice(1));
+
+// We can split the string and carry them on an array with the split method. EX:
+console.log('a+very+nice+string'.split('+'));
+
+console.log('Arafat Howlader'.split(' '));
+
+const [firstName, lastName] = 'Arafat Howlader'.split(' ');
+
+// Join method is oposite of split method. EX.
+
+// const [firstName, lastName] = 'Arafat Howlader'.split(' ');
+const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
+
+// console.log(newName);
+
+// --Mr. Arafat Howlader.
+
+////////////////////////////
+const capitalizeName = function (name) {
+  const names = name.split(' ');
+  const namesUpper = [];
+  
+  for (const n of names) {
+    // namesUpper.push(n[0].toUpperCase() + n.slice(1));
+    namesUpper.push(n.replace(n[0], n[0].toUpperCase()));
+  }
+  console.log(namesUpper.join(' '));
+};
+
+capitalizeName('jessica is my name');
+capitalizeName('and me myself arafat');
+
+// Padding
+const message = 'Go to gate 23';
+console.log(message.padStart(20, '-').padEnd(30, '-'));
+console.log('jonas'.padStart(20, '+').padEnd(30, '+'));
+
+const makeMasterCard = function (number) {
+  const str = number + '';
+  const last = str.slice(-4);
+  return last.padStart(str.length, '*');
+};
+
+console.log(makeMasterCard(564524444144414143));
+console.log(makeMasterCard('545645153451534153154'));
+
+
+// Repeat 
+const message2 = 'Due to bad weather... All departues delays... '
+console.log(message2.repeat(4))
+*/
+
+/*
+Coding Challenge #4
+Write a program that receives a list of variable names written in underscore_case and convert them to camelCase.
+The input will come from a textarea inserted into the DOM (see code below to 
+insert the elements), and conversion will happen when the button is pressed.
+Test data (pasted to textarea, including spaces):
+underscore_case
+first_name
+Some_Variable
+ calculate_AGE
+delayed_departure
+Should produce this output (5 separate console.log outputs):
+underscoreCase ✅
+firstName ✅✅
+someVariable ✅✅✅
+calculateAge ✅✅✅✅
+delayedDeparture ✅✅✅✅✅
+Hints:
+§ Remember which character defines a new line in the textarea �
+§ The solution only needs to work for a variable made out of 2 words, like a_b
+§ Start without worrying about the ✅. Tackle that only after you have the variable 
+name conversion working �
+§ This challenge is difficult on purpose, so start watching the solution in case 
+you're stuck. Then pause and continue!
+Afterwards, test with your own test data!
+GOOD LUCK �
+
+
+document.body.append(document.createElement('textarea'));
+document.body.append(document.createElement('button'));
+
+document.querySelector('button').addEventListener('click', function () {
+  const text = document.querySelector('textarea').value;
+  const rows = text.split('\n');
+  // console.log(rows);
+
+  for (const [i, row] of rows.entries()) {
+    const [first, last] = row.toLowerCase().trim().split('_');
+
+    const output = `${first}${last.replace(last[0], last[0].toUpperCase())}`;
+    console.log(`${output.padEnd(20)}${'✅'.repeat(i + 1)}`);
+  }
+});
+
+// for (const [i, row] of rows.entries()) {
+//   const [first, second] = row.toLowerCase().trim().split('_');
+
+//   const output = `${first}${second.replace(
+//     second[0],
+//     second[0].toUpperCase()
+//   )}`;
+//   console.log(`${output.padEnd(20)}${'✅'.repeat(i + 1)}`);
+// }
+*/
+
+const flights =
+  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
+
+const getCode = str => str.slice(0, 3).toUpperCase();
+// console.log(flights.split('+'))
+for (const flight of flights.split('+')) {
+  const [type, from, to, time] = flight.split(';');
+  const output = `${type.startsWith('_Delayed') ? '🔴' : ''}${type.replaceAll(
+    '_',
+    ' '
+  )} From ${getCode(from)} TO ${getCode(to)} (${time.replace(
+    ':',
+    'h'
+  )})`.padStart(35);
+  console.log(output);
 }
