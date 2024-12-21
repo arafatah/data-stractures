@@ -72,6 +72,8 @@ const ingredients = [
 ];
 console.log(ingredients);
 
+
+
 // restaurant.orderPasta(ingredients[0], ingredients[1], ingredients[2]);
 restaurant.orderPasta(...ingredients);
 
@@ -84,6 +86,28 @@ restaurantCopy.name = 'Ristorante Roma';
 console.log(restaurantCopy.name);
 console.log(restaurant.name);
 */
+
+const italianFoods = new Set([
+  'pasta',
+  'gnocchi',
+  'tomatoes',
+  'olive oil',
+  'garlic',
+  'basil',
+]);
+
+const maxicanFoods = new Set([
+  'tortillas',
+  'beans',
+  'rice',
+  'tomatoes',
+  'avocado',
+  'garlic',
+]);
+
+const commonFood = italianFoods.intersection(maxicanFoods);
+console.log('intersection', commonFood);
+console.log([...commonFood]);
 
 /*
 // Destructuring
