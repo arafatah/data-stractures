@@ -105,9 +105,20 @@ const maxicanFoods = new Set([
   'garlic',
 ]);
 
+// Intersection function for find the common in array. [ES2025]
 const commonFood = italianFoods.intersection(maxicanFoods);
 console.log('intersection', commonFood);
 console.log([...commonFood]);
+
+// Return only uniqe value.
+const italianMaxicanFusion = italianFoods.union(maxicanFoods);
+console.log('Union', italianMaxicanFusion);
+
+// Another way - Not very useful one.
+console.log([...new Set([...italianFoods, ...maxicanFoods])]);
+
+const uniqeItalianFoods = italianFoods.difference(maxicanFoods);
+console.log(uniqeItalianFoods);
 
 /*
 // Destructuring
