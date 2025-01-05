@@ -117,9 +117,20 @@ console.log('Union', italianMaxicanFusion);
 // Another way - Not very useful one.
 console.log([...new Set([...italianFoods, ...maxicanFoods])]);
 
+// Get only uniqe food
 const uniqeItalianFoods = italianFoods.difference(maxicanFoods);
 console.log(uniqeItalianFoods);
 
+const uniqeMaxicanFoods = maxicanFoods.difference(italianFoods);
+console.log(uniqeMaxicanFoods);
+
+// Get both with symmetricDifference
+const uniqeItalianAndMaxicanFoods =
+  italianFoods.symmetricDifference(maxicanFoods);
+console.log(uniqeItalianAndMaxicanFoods);
+
+// Check completely different from anothoer one
+console.log(italianFoods.isDisjointFrom(maxicanFoods));
 /*
 // Destructuring
 // SPAREAD, because on RIGHT side of =
