@@ -995,3 +995,33 @@ for (const [min, event] of gameEvents) {
   const half = min < 45 ? 'FIRST' : 'SECOND';
   console.log(`[${half} HALF] ${min}: ${event}`);
 }
+
+const capitalizeName = function (name) {
+  const names = name.split(' ');
+  const namesUpper = [];
+
+  for (const n of names) {
+    namesUpper.push(n[0].toUpperCase() + n.slice(1));
+  }
+  console.log(namesUpper.join(' '));
+};
+
+capitalizeName('arafat howlader');
+// This can be made with replace method also.
+
+document.body.append(document.createElement('textarea'));
+document.body.append(document.createElement('button'));
+
+document.querySelector('button').addEventListener('click', function () {
+  const text = document.querySelector('textarea').value;
+  const rows = text.split('\n');
+  console.log(rows);
+
+  for (const [i, row] of rows.entries()) {
+    const [first, last] = row.toLowerCase().trim().split('_');
+    
+    const output = `${first}${last.replace(last[0], last[0].toUpperCase())}`;
+    console.log(`${output.padEnd(20)}${'✅'.repeat(i + 1)}`);
+  }
+ 
+});
